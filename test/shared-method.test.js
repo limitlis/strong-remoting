@@ -39,6 +39,14 @@ describe('SharedMethod', function() {
       ]);
     });
 
+    it('passes along `accessScopes` correctly', function() {
+      const sharedMethod = new SharedMethod(STUB_METHOD, 'a-name', STUB_CLASS, {
+        accessScopes: ['custom'],
+      });
+
+      expect(sharedMethod.accessScopes).to.include('custom');
+    });
+
     it('passes along `documented` flag correctly', function() {
       const sharedMethod = new SharedMethod(STUB_METHOD, 'a-name', STUB_CLASS, {
         documented: false,
